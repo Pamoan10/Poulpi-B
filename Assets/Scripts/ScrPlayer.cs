@@ -28,6 +28,11 @@ public class ScrPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        movi.x = Input.GetAxis("Horizontal");
+        movi.y = Input.GetAxis("Vertical");
+    }
+    private void FixedUpdate()
+    {
+        rb.velocity = movi;
     }
 }
