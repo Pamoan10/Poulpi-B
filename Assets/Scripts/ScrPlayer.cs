@@ -8,11 +8,11 @@ using UnityEngine;
 ///         Script utilitzat per controlar el player
 /// AUTOR:  Paula Moreta
 /// DATA:   18/01/2021
-/// VERSIÓ: 1.0
-///         2.0
+/// VERSIÓ: 3.0
 /// CONTROL DE VERSIONS
 ///         1.0: primera versió. Moviment de la nau amb tecles i físiques
 ///         2.0: segona versió.  Implementació de joystick
+///         3.0: tercera versió. Implementació de powerUp
 /// ----------------------------------------------------------------------------------
 /// </summary>
 
@@ -24,11 +24,12 @@ public class ScrPlayer : MonoBehaviour
 
     //************************************Gestió shot**********************************
     [SerializeField] GameObject missil; //element a instanciar, arrosseguem prefab
-    [SerializeField] Transform cano; //d'on surt el tret
+    [SerializeField] Transform[] canons; //d'on surten els trets
 
     //*************************************cool down********************************
     [SerializeField] float cadencia = 0.5f; //dispararà cada 5 dècimes de segon
     float crono = 0f; //per comptar el temps de cadència
+    float cronoPowerUp = 0f;
 
     void Start()
     {
@@ -45,6 +46,13 @@ public class ScrPlayer : MonoBehaviour
         crono += Time.deltaTime;
 
         if (ETCInput.GetButtonUp("Shoot")) crono = cadencia; //permet disparar ràpid amb múltiples clices
+
+        if (Input.GetKeyDown(KeyCode.T)) //prototipus triple shoot
+        {
+            SetTripleShot(true);
+            cronoPowerUp = 5f;
+        }
+        if (cronoPowerUp > 0) cronoPowerUp -= Time.deltaTime; else SetTripleShot(false); //Si és més gran a 0, descompta fins que desactiva els canons
     }
     private void FixedUpdate()
     {
@@ -52,9 +60,13 @@ public class ScrPlayer : MonoBehaviour
     }
     void Dispara()
     {
-        Instantiate(missil, cano.position, cano.rotation);
-        Instantiate(missil, cano.position, Quaternion.Euler (new Vector3(0, 0, 33)));
-        Instantiate(missil, cano.position, Quaternion.Euler (new Vector3(0, 0, -33)));
+        foreach(Transform cano in canons )
+        if(cano.gameObject.activeSelf) Instantiate(missil, cano.position, cano.rotation); //si es visible, dispara, sino ho ignora, cosa que no fa de forma predeterminada
         crono = 0;
+    }
+    void SetTripleShot(bool estat)
+    {
+        canons[0].gameObject.SetActive(estat);
+        canons[2].gameObject.SetActive(estat);
     }
 }
