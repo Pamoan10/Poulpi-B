@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3333007098105651692}
   - component: {fileID: 6645385337823598101}
   - component: {fileID: 9207782418869803835}
+  - component: {fileID: 3883597906169851447}
+  - component: {fileID: 5098198980118547125}
   m_Layer: 0
   m_Name: Poulpi
   m_TagString: Untagged
@@ -95,7 +97,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.14272654, y: 0.53522515}
@@ -135,3 +137,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velX: -5
+  explosio: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
+  elast: 0
+  tipusMoviment: 1
+--- !u!114 &3883597906169851447
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3917426200837208837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eece775d751b484cb323e8014cb13ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vitality: 2
+--- !u!114 &5098198980118547125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3917426200837208837}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2749214699f85124da7c1a626247f83b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageNPC: 0
+  damagePlayer: 5

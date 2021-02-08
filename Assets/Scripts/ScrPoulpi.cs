@@ -8,14 +8,16 @@ using UnityEngine;
 ///         Script utilitzat per controlar el pop npc
 /// AUTOR:  Paula Moreta
 /// DATA:   01/02/2021
-/// VERSIÓ: 1.0
+/// VERSIÓ: 2.0
 /// CONTROL DE VERSIONS
 ///         1.0: primera versió. Moviment del personatge i creació de Random.Range
+///         2.0: segona versió.  Destrucció del personatge
 /// ----------------------------------------------------------------------------------
 /// </summary>
 public class ScrPoulpi : MonoBehaviour
 {
     [SerializeField] float velX = -5f;
+    [SerializeField] GameObject explosio; //Per la destrucció
     Vector2 moviment = new Vector2();
     float velY;
     float desfase;
@@ -58,8 +60,9 @@ public class ScrPoulpi : MonoBehaviour
                 moviment.y = Mathf.Sin(Time.time * frequencia + desfase) * amplitud; 
                 break;
             case 5:
-                moviment.x = 0f;
-                moviment.y = (player.transform.position.y - transform.position.y) / elast;
+                moviment.x = -3f;
+                if (player) moviment.y = (player.transform.position.y - transform.position.y) / elast;
+                else moviment.y = 0;
                 break;
         }
     }
@@ -71,5 +74,10 @@ public class ScrPoulpi : MonoBehaviour
     private void Update()
     {
         CalculaMoviment(tipusMoviment);
+    }
+    void Destruccio() //Indica com es destrueix
+    {
+        Instantiate(explosio, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
 }
