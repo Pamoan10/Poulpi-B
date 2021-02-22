@@ -32,7 +32,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.3003674, y: -4.0801344, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6549354579871356804}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -140,6 +141,11 @@ MonoBehaviour:
   explosio: {fileID: 100004, guid: f95ff734540a0d749be6571b6cb5b37f, type: 3}
   elast: 0
   tipusMoviment: 1
+  cano: {fileID: 6549354579871356804}
+  projectil: {fileID: 2219787265258367434, guid: 112ef61cae218734991e30750851fa4d,
+    type: 3}
+  cadenciaMin: 1
+  cadenciaMax: 3
 --- !u!114 &3883597906169851447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,6 +159,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vitality: 2
+  tocat: {fileID: 8300000, guid: 75ca4b233a901cc4ca8843975d559f53, type: 3}
+  enfonsat: {fileID: 8300000, guid: 751cc7ade52191f419522e502d9307f1, type: 3}
 --- !u!114 &5098198980118547125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,3 +175,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageNPC: 0
   damagePlayer: 5
+--- !u!1 &8236103227309956950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6549354579871356804}
+  m_Layer: 0
+  m_Name: cano
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6549354579871356804
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8236103227309956950}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.79, y: 0.02, z: -0.9173978}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1092108457512832873}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

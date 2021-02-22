@@ -12,6 +12,7 @@ using UnityEngine;
 /// CONTROL DE VERSIONS
 ///         1.0: primera versió. Moviment del personatge i creació de Random.Range
 ///         2.0: segona versió.  Destrucció del personatge
+///         3.0: tercera versió. Afegir bales
 /// ----------------------------------------------------------------------------------
 /// </summary>
 public class ScrPoulpi : MonoBehaviour
@@ -28,16 +29,45 @@ public class ScrPoulpi : MonoBehaviour
     GameObject player;
     const int QUANTS_MOVIMENTS = 5;
 
+    // **************GESTIÓ SHOOTING**************
+    [SerializeField] Transform cano;
+    [SerializeField] GameObject projectil;
+    [SerializeField] float cadenciaMin = 1, cadenciaMax = 3; //temps entre dispars
+    float crono;
+
+    Renderer r; //no apunta a res, hem de fer que apunti a quelcom desde el start
+    Collider2D col;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         velY = Random.Range(2f, -2f);
         desfase = Random.Range(0f, 360f);
+        r = GetComponent<Renderer>();
+        col = GetComponent<Collider2D>();
+        col.enabled = false;
 
         player = GameObject.FindGameObjectWithTag("Player"); //apunta a la nau
         if (tipusMoviment == 0) tipusMoviment = Random.Range(1, QUANTS_MOVIMENTS + 1); //el +1 es porque el random range si es con ints, pilla hasta el ultimo del rango - 1   
+
+        crono = Random.Range(cadenciaMin, cadenciaMax); //preparem el primer tret
     }
+    private void Update()
+    {
+        if (r.isVisible)
+        {
+            crono -= Time.deltaTime;
+            if (crono <= 0) Dispara();
+            col.enabled = true;
+        }
+    }
+    void Dispara()
+    {
+        GameObject p = Instantiate(projectil, cano.position, cano.rotation);
+        p.transform.Rotate(0, 0, Random.Range(-10f, 10f));
+        crono = Random.Range(cadenciaMin, cadenciaMax); //següent tret
+    }
+
     void CalculaMoviment(int tipus)
     {
         switch (tipus)
@@ -69,12 +99,10 @@ public class ScrPoulpi : MonoBehaviour
 
     void FixedUpdate()
     {
+        CalculaMoviment(tipusMoviment);
         rb.velocity = moviment;
     }
-    private void Update()
-    {
-        CalculaMoviment(tipusMoviment);
-    }
+    
     void Destruccio() //Indica com es destrueix
     {
         Instantiate(explosio, transform.position, transform.rotation);
