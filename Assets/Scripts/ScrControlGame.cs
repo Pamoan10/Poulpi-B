@@ -18,4 +18,10 @@ public class ScrControlGame : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.M)) AudioListener.pause = !AudioListener.pause;
         if (Input.GetKeyDown(KeyCode.X)) Debug.Break();
     }
+
+    static public bool EsVisibleDesde(Renderer renderer, Camera camera)
+    {
+        Plane[] planes = GeometryUtility.CalculateFrustumPlanes(camera);
+        return GeometryUtility.TestPlanesAABB(planes, renderer.bounds);
+    }
 }

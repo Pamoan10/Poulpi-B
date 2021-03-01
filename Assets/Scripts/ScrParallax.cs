@@ -4,21 +4,11 @@ using UnityEngine;
 
 public class ScrParallax : MonoBehaviour
 {
-    private float lenght, startpos;
-    [SerializeField] GameObject cam;
-    [SerializeField] float parallaxEffect;
-
-
-    void Start()
-    {
-        startpos = transform.position.x;
-        lenght = GetComponent<SpriteRenderer>().bounds.size.x;
-    }
+    [SerializeField] float scrollSpeed = 0f;
 
     
-    void FixedUpdate()
+    void Update()
     {
-        float dist = (cam.transform.position.x * parallaxEffect);
-        transform.position = new Vector3(startpos + dist, transform.position.y, transform.position.z);
+        transform.Translate(scrollSpeed * Time.deltaTime, 0, 0);
     }
 }
