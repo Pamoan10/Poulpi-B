@@ -300,12 +300,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!4 &52091289 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 144229181836031576, guid: 7a9fd306949d6f048961b5f10f43f599,
-    type: 3}
-  m_PrefabInstance: {fileID: 8665185593055179484}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &76194250 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8665185593114252054, guid: 7a9fd306949d6f048961b5f10f43f599,
@@ -2163,6 +2157,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1975589869 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8665185593114252053, guid: 7a9fd306949d6f048961b5f10f43f599,
+    type: 3}
+  m_PrefabInstance: {fileID: 8665185593055179484}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2018426996
 GameObject:
   m_ObjectHideFlags: 0
@@ -2479,6 +2479,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2795774831487185544, guid: 649e4e9e5d3677c45ad9e9d71f83d787,
+        type: 3}
+      propertyPath: apuntar
+      value: 
+      objectReference: {fileID: 1975589869}
     - target: {fileID: 3354440417268237051, guid: 649e4e9e5d3677c45ad9e9d71f83d787,
         type: 3}
       propertyPath: m_Name
@@ -2548,16 +2553,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1314942998}
     m_Modifications:
-    - target: {fileID: 7487398646848979311, guid: 7a9fd306949d6f048961b5f10f43f599,
-        type: 3}
-      propertyPath: cano
-      value: 
-      objectReference: {fileID: 52091289}
-    - target: {fileID: 7487398646848979311, guid: 7a9fd306949d6f048961b5f10f43f599,
-        type: 3}
-      propertyPath: cano2
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8665185593114252053, guid: 7a9fd306949d6f048961b5f10f43f599,
         type: 3}
       propertyPath: m_Name
