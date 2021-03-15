@@ -13,6 +13,8 @@ public class ScrBoss : MonoBehaviour
 
     bool detectaPlayer = false;
     [SerializeField] LayerMask filtreCapes;
+
+    Animator ani;
     
     void Destruccio()
     {
@@ -23,6 +25,7 @@ public class ScrBoss : MonoBehaviour
     {
         col = GetComponent<Collider2D>();
         col.enabled = false;
+        ani = GetComponent<Animator>(); 
     }
     void Update()
     {
@@ -33,6 +36,12 @@ public class ScrBoss : MonoBehaviour
     {
         float radiDeteccio = 20;
         detectaPlayer = Physics2D.OverlapCircle(transform.position, radiDeteccio, filtreCapes);
-        if (detectaPlayer) moviment = false;
+        if (detectaPlayer)
+        {
+            moviment = false;
+            ani.SetBool("player_detectat", true);
+            //GetComponentInParent<ScrNPCShot>().atacant = true;
+        }
+            
     }
 }

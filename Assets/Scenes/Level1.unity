@@ -2479,6 +2479,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 366102928, guid: 649e4e9e5d3677c45ad9e9d71f83d787, type: 3}
+      propertyPath: atacant
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2795774831487185544, guid: 649e4e9e5d3677c45ad9e9d71f83d787,
         type: 3}
       propertyPath: apuntar
@@ -2492,7 +2496,7 @@ PrefabInstance:
     - target: {fileID: 4367787416656506929, guid: 649e4e9e5d3677c45ad9e9d71f83d787,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20.66
+      value: 43.01
       objectReference: {fileID: 0}
     - target: {fileID: 4367787416656506929, guid: 649e4e9e5d3677c45ad9e9d71f83d787,
         type: 3}
