@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: da7a3ab21eb543b45bc01b889ac0aa31
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: DriftType
+  fontNames:
+  - DriftType
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b6256ce952f02cd44a386e3f3c97af24, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

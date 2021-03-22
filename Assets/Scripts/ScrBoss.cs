@@ -44,4 +44,8 @@ public class ScrBoss : MonoBehaviour
         }
             
     }
+    public void ActivaAtac()
+    {
+        GetComponentInParent<ScrNPCShot>().atacant = true;
+    }
 }
